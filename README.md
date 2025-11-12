@@ -74,7 +74,6 @@ Buat Pull Request (PR) di GitHub agar perubahan bisa direview sebelum digabung k
   ```bash
   git pull origin main
   ```
-- 📝 **Gunakan nama branch dan pesan commit yang jelas**
 - 💬 **Kalau ada conflict, tanyain di grup baee**
 
 ---

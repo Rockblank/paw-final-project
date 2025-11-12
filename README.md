@@ -11,12 +11,12 @@ kalo ada bingung bisa langsung tanya aja di grup
 ### 1. Clone Repository
 Clone repository ini terlebih dahulu:
 ```bash
-git clone https://github.com/nama-user/nama-repo.git
+git clone https://github.com/valentinusdelvin/paw-final-project.git
 ```
 
 ### 2. Masuk ke Folder Proyek
 ```bash
-cd nama-repo
+cd paw-final-project
 ```
 
 ### 3. Install Dependencies
@@ -26,19 +26,13 @@ composer install
 ```
 
 ### 4. Setup Environment
-Buat file `.env` berdasarkan contoh:
+Buat file `.env` berdasarkan contoh terus diisi sesuai settingan local kalian:
 ```bash
 cp .env.example .env
 ```
 Isi konfigurasi di file `.env` sesuai pengaturan lokal kalian (database, app key, dsb).
 
-### 5. Generate Application Key
-Generate application key (jika menggunakan Laravel):
-```bash
-php artisan key:generate
-```
-
-### 6. Migrasi Database
+### 5. Migrasi Database
 Jalankan migrasi database (jika diperlukan):
 ```bash
 php artisan migrate
@@ -53,7 +47,7 @@ Buat branch baru untuk fitur atau perbaikan bug:
 ```bash
 git checkout -b nama-branch
 ```
-**Contoh:** `git checkout -b fitur-login` atau `git checkout -b fix-navbar`
+**Contoh:** `git checkout -b fitur-login` atau `git checkout -b fitur-aspirasi`
 
 ### 2. Commit Perubahan
 Setelah selesai coding, lakukan commit:
@@ -69,26 +63,20 @@ git push origin nama-branch
 ```
 
 ### 4. Buat Pull Request
-Buat Pull Request (PR) di GitHub agar perubahan bisa direview sebelum digabung ke branch utama (`main` atau `dev`).
+Buat Pull Request (PR) di GitHub agar perubahan bisa direview sebelum digabung ke branch `main` (kabarin gw kalo pull request).
 
 ---
 
 ## ⚠️ Catatan Penting
 
 - ❌ **Jangan langsung push ke branch `main` tanpa review**
-- 🔄 **Selalu pull perubahan terbaru sebelum mulai kerja:**
+- 🔄 **Selalu pull perubahan terbaru sebelum mulai ngoding:**
   ```bash
   git pull origin main
   ```
 - 📝 **Gunakan nama branch dan pesan commit yang jelas**
-- 💬 **Kalau ada conflict, diskusikan di grup sebelum merge**
+- 💬 **Kalau ada conflict, tanyain di grup baee**
 
 ---
 
-## 📞 Kontak Tim
-
-Kalau ada error atau setup yang gak jalan, kabari di grup dulu sebelum mengubah struktur proyek utama.
-
----
-
-**Semangat ngerjainnya, teman-teman! 🚀💪**
+**Selamat Ngoding! 🚀💪**

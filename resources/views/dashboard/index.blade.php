@@ -104,7 +104,7 @@
         <!-- Baris 2 -->
         <div class="cards-row">
             <!-- punya kelompok 3 -->
-            <div class="card" onclick="window.location.href='persuratan'"> 
+            <div class="card" onclick="window.location.href='surat'"> 
                 <h3>Persuratan</h3> 
                 <p>Buat dan kelola surat menyurat RT seperti surat keterangan dan dokumen resmi lainnya.</p>
             </div>

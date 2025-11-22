@@ -3,22 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
     body {
-        font-family: Arial;
+        font-family: 'Poppins', sans-serif;
         margin: 0;
-    }
-
-    /* Header */
-    header {
-        background: #111;
-        padding: 14px ;
-    }
-
-    header h1 {
-        color: white;
-        font-size: 16px;
     }
 
         /* Container utama */
@@ -29,9 +21,11 @@
 
     /* Judul utama */
     .hero-title {
-        font-size: 26px;
+        font-size: 40px;
         font-weight: bold;
         color: #0A7968;
+        text-align: center;
+        margin-bottom: 10px;
     }
 
     .hero-desc {
@@ -76,10 +70,7 @@
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>HOME</h1>
-    </header>
+
 
     <!-- Konten utama -->
     <div class="container">
@@ -91,17 +82,19 @@
 
         <!-- Baris 1 -->
         <div class="cards-row">
-            
-                <div class="card" onclick="window.location.href='warga/tambah'">
+            <!-- punya kelompok 1 -->
+            <div class="card" onclick="window.location.href='warga/tambah'">
                 <h3>Pendataan Warga</h3>
                 <p>Kelola data kependudukan warga RT dengan sistem yang terorganisir dan mudah diakses.</p>
             </div>
 
-            <div class="card">
+            <!-- punya kelompok 1 -->
+            <div class="card"  onclick="window.location.href='iuran/tambah'">
                 <h3>Iuran Warga</h3>
                 <p>Pantau dan kelola pembayaran iuran bulanan warga dengan transparansi penuh.</p>
             </div>
 
+            <!-- punya kelompok 2 -->
             <div class="card">
                 <h3>Aduan Warga</h3>
                 <p>Terima dan tindaklanjuti aduan warga untuk meningkatkan kualitas lingkungan RT.</p>
@@ -110,11 +103,13 @@
 
         <!-- Baris 2 -->
         <div class="cards-row">
-            <div class="card" onclick="window.location.href='persuratan'">
+            <!-- punya kelompok 3 -->
+            <div class="card" onclick="window.location.href='persuratan'"> 
                 <h3>Persuratan</h3> 
                 <p>Buat dan kelola surat menyurat RT seperti surat keterangan dan dokumen resmi lainnya.</p>
             </div>
 
+            <!-- punya kelompok 2 -->
             <div class="card">
                 <h3>Pengumuman Warga</h3>
                 <p>Publikasikan informasi penting dan pengumuman untuk seluruh warga RT.</p>

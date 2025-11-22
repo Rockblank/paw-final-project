@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
 
 // routes untuk persuratan
@@ -33,9 +33,9 @@ Route::post('/warga', [DataController::class, 'storeWarga']);
 Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
 Route::post('/iuran', [DataController::class, 'storeIuran']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
-});
+// Route::get('/dashboard', function () {
+//     return view('dashboard.index');
+// });
 
 Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
 Route::post('/iuran', [DataController::class, 'storeIuran']);

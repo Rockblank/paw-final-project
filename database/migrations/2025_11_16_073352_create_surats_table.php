@@ -22,7 +22,7 @@ return new class extends Migration
             // Foreign key ke tabel warga
             $table->foreign('NIK')
                 ->references('NIK')
-                ->on('wargas')
+                ->on('warga')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });

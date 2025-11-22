@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DataController;
+use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
+
+// Halaman daftar surat (tampilan tabel)
+Route::get('/surat', [SuratController::class, 'index'])->name('surat.index');
+Route::get('/surat/pengajuan', [SuratController::class, 'create'])->name('surat.create');
+Route::post('/surat/pengajuan', [SuratController::class, 'store'])->name('surat.store');
+
+Route::get('/warga/tambah', [DataController::class, 'createWarga']);
+Route::post('/warga', [DataController::class, 'storeWarga']);
+
+Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
+Route::post('/iuran', [DataController::class, 'storeIuran']);

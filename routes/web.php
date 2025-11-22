@@ -27,9 +27,15 @@ Route::get('/persuratan', function () {
     ];
     return view('surat.index', compact('data_permohonan'));
 });
-
 Route::get('/warga/tambah', [DataController::class, 'createWarga']);
 Route::post('/warga', [DataController::class, 'storeWarga']);
+
+Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
+Route::post('/iuran', [DataController::class, 'storeIuran']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+});
 
 Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
 Route::post('/iuran', [DataController::class, 'storeIuran']);

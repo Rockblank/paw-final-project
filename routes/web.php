@@ -19,15 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// routes untuk persuratan
-Route::get('/persuratan', function () {
-    // Ambil data dari database 
-    $data_permohonan = [
-        // Contoh data yang bisa dilewatkan ke view
-        // Di sini Anda akan query database
-    ];
-    return view('surat.index', compact('data_permohonan'));
-});
+
+// Halaman daftar surat (tampilan tabel)
+Route::get('/persuratan', [SuratController::class, 'index'])->name('persuratan.index');
+
+// Form pengajuan surat
+Route::get('/persuratan/pengajuan', [SuratController::class, 'create'])->name('persuratan.create');
+
+// Submit pengajuan surat ke database
+Route::post('/persuratan/pengajuan', [SuratController::class, 'store'])->name('persuratan.store');
 
 Route::get('/warga/tambah', [DataController::class, 'createWarga']);
 Route::post('/warga', [DataController::class, 'storeWarga']);

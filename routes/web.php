@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,9 @@ Route::get('/persuratan', function () {
     ];
     return view('surat.index', compact('data_permohonan'));
 });
+
+Route::get('/warga/tambah', [DataController::class, 'createWarga']);
+Route::post('/warga', [DataController::class, 'storeWarga']);
+
+Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
+Route::post('/iuran', [DataController::class, 'storeIuran']);

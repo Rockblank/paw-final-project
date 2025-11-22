@@ -32,3 +32,7 @@ Route::post('/warga', [DataController::class, 'storeWarga']);
 
 Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
 Route::post('/iuran', [DataController::class, 'storeIuran']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+});

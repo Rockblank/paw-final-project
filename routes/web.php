@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// routes untuk persuratan
+Route::get('/persuratan', function () {
+    // Ambil data dari database 
+    $data_permohonan = [
+        // Contoh data yang bisa dilewatkan ke view
+        // Di sini Anda akan query database
+    ];
+    return view('surat.index', compact('data_permohonan'));
+});

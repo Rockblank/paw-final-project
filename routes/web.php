@@ -21,21 +21,16 @@ Route::get('/', function () {
 
 
 // Halaman daftar surat (tampilan tabel)
-Route::get('/persuratan', [SuratController::class, 'index'])->name('persuratan.index');
+Route::get('/surat', [SuratController::class, 'index'])->name('surat.index');
 
 // Form pengajuan surat
-Route::get('/persuratan/pengajuan', [SuratController::class, 'create'])->name('persuratan.create');
+Route::get('/surat/pengajuan', [SuratController::class, 'create'])->name('surat.create');
 
 // Submit pengajuan surat ke database
-Route::post('/persuratan/pengajuan', [SuratController::class, 'store'])->name('persuratan.store');
+Route::post('/surat/pengajuan', [SuratController::class, 'store'])->name('surat.store');
 
 Route::get('/warga/tambah', [DataController::class, 'createWarga']);
 Route::post('/warga', [DataController::class, 'storeWarga']);
 
 Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
 Route::post('/iuran', [DataController::class, 'storeIuran']);
-
-Route::get('/surat', [SuratController::class, 'index'])->name('surat.index');
-Route::get('/surat/create', [SuratController::class, 'create'])->name('surat.create');
-Route::post('/surat/store', [SuratController::class, 'store'])->name('surat.store');
-

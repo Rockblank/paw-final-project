@@ -139,11 +139,21 @@ use Carbon\Carbon;
         </div>
     @endif
     @if(session('error'))
+    <div style="background:#ffd6d6; padding:10px; margin-bottom:15px; border-radius:5px; border-left:5px solid red;">
+        {{ session('error') }}
+    </div>
+    @endif
+    @if ($errors->any())
         <div style="background:#ffd6d6; padding:10px; margin-bottom:15px; border-radius:5px; border-left:5px solid red;">
-            {{ session('error') }}
+            <ul style="margin:0; padding-left:18px;">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
 
+    
     <h2 class="judul-bagian">Persuratan RT PEMWEB D</h2>
     <h3 class="subjudul-form">Formulir Permohonan Surat</h3>
 

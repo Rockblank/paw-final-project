@@ -28,6 +28,7 @@ use Carbon\Carbon;
         max-width: 900px;
         margin: 0 auto;
         padding: 0 20px;
+        cursor: pointer;
     }
     header {
         padding: 15px 0;
@@ -125,8 +126,8 @@ use Carbon\Carbon;
 <body>
 
 <header>
-    <div class="container">
-        <h1>HOME</h1>
+    <div class="container" onclick="window.location.href='/'">
+        <h1> HOME </h1>
     </div>
 </header>
 

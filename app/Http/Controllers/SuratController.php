@@ -22,20 +22,21 @@ class SuratController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'NIK' => 'required|size:16',
+            'NIK' => 'required|size:16|exists:warga,NIK',
             'Nama_Lengkap' => 'required|string|max:100',
             'Jenis_Surat' => 'required',
             'Keterangan' => 'nullable|string',
+        ], [
+            'NIK.required' => 'NIK wajib diisi.',
+            'NIK.size' => 'NIK harus terdiri dari 16 digit.',
+            'NIK.exists' => 'NIK tidak ditemukan dalam data warga.',
+            'Jenis_Surat.required' => 'Silakan pilih jenis surat yang ingin diajukan.',
         ]);
 
-        // cek apakah nik ada di tabel warga
-        if (!Warga::where('NIK', $request->NIK)->exists()) {
-            return back()->with('error', 'NIK tidak ditemukan dalam data warga.');
-        }
+        $warga = Warga::where('NIK', $request->NIK)->first();
 
-        // cek apakah nik sudah mengajukan surat sebelumnya
-        if (Surat::where('NIK', $request->NIK)->exists()) {
-            return back()->with('error', 'Kamu sudah mengajukan surat sebelumnya.');
+        if ($warga->Nama !== $request->Nama_Lengkap) {
+            return back()->with('error', 'Nama tidak sesuai dengan NIK yang terdaftar.')->withInput();
         }
 
         Surat::create([

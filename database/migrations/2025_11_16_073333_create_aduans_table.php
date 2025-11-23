@@ -6,21 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function up()
     {
         Schema::create('aduans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('warga_id')->constrained('wargas')->onDelete('cascade');
+            $table->string('judul');
+            $table->text('isi_aduan');
+            $table->enum('kategori', ['infrastruktur', 'keamanan', 'kebersihan', 'lainnya']);
+            $table->enum('status', ['pending', 'diproses', 'selesai'])->default('pending');
+            $table->text('tanggapan')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('aduans');
     }

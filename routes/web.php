@@ -3,6 +3,8 @@
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AduanController;
+use App\Http\Controllers\PengumumanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +31,7 @@ Route::post('/warga', [DataController::class, 'storeWarga']);
 
 Route::get('/iuran/tambah', [DataController::class, 'createIuran']);
 Route::post('/iuran', [DataController::class, 'storeIuran']);
+
+// Routes Aduan
+Route::resource('aduan', AduanController::class);
+Route::resource('pengumuman', PengumumanController::class);

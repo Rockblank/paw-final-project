@@ -3,18 +3,15 @@
 @section('title', 'Tambah Data Warga')
 
 @section('content')
-    <!-- Judul Halaman -->
     <h1 class="page-title">Form Tambah Warga</h1>
     <p class="page-subtitle">Silakan lengkapi data di bawah ini dengan benar</p>
 
-    <!-- Alert Sukses -->
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
-    <!-- Alert Error Validasi -->
     @if ($errors->any())
         <div class="alert alert-error">
             <ul style="list-style-type: disc; padding-left: 20px;">
@@ -25,12 +22,10 @@
         </div>
     @endif
 
-    <!-- Card Form -->
     <div class="card">
         <form method="POST" action="/warga">
             @csrf
 
-            <!-- Input NIK -->
             <div class="form-group">
                 <label for="NIK">NIK (16 Digit)</label>
                 <input type="text" 
@@ -42,7 +37,6 @@
                        required>
             </div>
 
-            <!-- Input Nama -->
             <div class="form-group">
                 <label for="Nama">Nama Lengkap</label>
                 <input type="text" 
@@ -54,7 +48,6 @@
                        required>
             </div>
 
-            <!-- Input Tanggal Lahir -->
             <div class="form-group">
                 <label for="Tanggal_Lahir">Tanggal Lahir</label>
                 <input type="date" 
@@ -64,7 +57,6 @@
                        value="{{ old('Tanggal_Lahir') }}">
             </div>
 
-            <!-- Input Alamat -->
             <div class="form-group">
                 <label for="Alamat">Alamat</label>
                 <textarea id="Alamat" 
@@ -74,7 +66,6 @@
                           required>{{ old('Alamat') }}</textarea>
             </div>
 
-            <!-- Input RT -->
             <div class="form-group">
                 <label for="RT">RT</label>
                 <input type="text" 
@@ -86,7 +77,6 @@
                        required>
             </div>
 
-            <!-- Tombol Aksi -->
             <div class="action-buttons" style="margin-top: 30px;">
                 <button type="submit" class="btn btn-primary">Simpan Warga</button>
                 <a href="/warga" class="btn btn-secondary">Kembali</a>

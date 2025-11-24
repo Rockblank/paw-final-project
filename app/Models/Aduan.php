@@ -10,7 +10,7 @@ class Aduan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'warga_nik',  // PENTING: Ganti dari warga_id ke warga_nik
+        'warga_nik',  
         'judul',
         'isi_aduan',
         'kategori',

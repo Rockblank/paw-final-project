@@ -35,18 +35,7 @@
 
     <div style="background-color: #F8F8F8; padding: 35px; border-radius: 12px; line-height: 1.9; font-size: 15px; border-left: 5px solid #5ba6a0; white-space: pre-wrap; word-wrap: break-word;">{{ $pengumuman->isi_pengumuman }}</div>
 
-    <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #e8f5f3;">
-        <div style="background-color: #e8f5f3; padding: 15px 20px; border-radius: 8px; display: inline-block;">
-            <span style="color: #0A7968; font-weight: 600; font-size: 13px;">
-                📊 Status: 
-                @if($pengumuman->is_active)
-                    <span style="color: #0A7968;">✅ Aktif</span>
-                @else
-                    <span style="color: #999;">⚠️ Tidak Aktif</span>
-                @endif
-            </span>
-        </div>
-    </div>
+    
 
     <div class="action-buttons" style="margin-top: 30px;">
         <a href="{{ route('pengumuman.edit', $pengumuman) }}" class="btn btn-primary">✏️ Edit Pengumuman</a>

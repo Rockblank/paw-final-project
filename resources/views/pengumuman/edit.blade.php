@@ -74,23 +74,7 @@
             >{{ old('isi_pengumuman', $pengumuman->isi_pengumuman) }}</textarea>
         </div>
 
-        <div class="form-group">
-            <div style="background-color: #e8f5f3; padding: 20px; border-radius: 8px; border-left: 4px solid #5ba6a0;">
-                <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin: 0;">
-                    <input 
-                        type="checkbox" 
-                        name="is_active" 
-                        value="1" 
-                        {{ old('is_active', $pengumuman->is_active) ? 'checked' : '' }} 
-                        style="width: 20px; height: 20px; cursor: pointer;"
-                    >
-                    <span style="font-weight: 600; color: #0A7968;">✅ Aktifkan pengumuman ini (Tampilkan ke warga)</span>
-                </label>
-                <small style="color: #5ba6a0; font-size: 12px; margin-left: 32px; display: block; margin-top: 8px;">
-                    Jika dinonaktifkan, pengumuman tidak akan muncul di daftar
-                </small>
-            </div>
-        </div>
+        
 
         <div class="action-buttons" style="margin-top: 30px;">
             <button type="submit" class="btn btn-primary" style="min-width: 200px;">💾 Update Pengumuman</button>

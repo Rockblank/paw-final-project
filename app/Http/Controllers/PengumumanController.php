@@ -10,8 +10,7 @@ class PengumumanController extends Controller
     // Tampilkan semua pengumuman
     public function index()
     {
-        $pengumumans = Pengumuman::where('is_active', true)
-            ->latest('tanggal_pengumuman')
+        $pengumumans = Pengumuman::latest('tanggal_pengumuman')
             ->get();
         return view('pengumuman.index', compact('pengumumans'));
     }
@@ -58,7 +57,7 @@ class PengumumanController extends Controller
             'isi_pengumuman' => 'required|string',
             'prioritas' => 'required|in:rendah,sedang,tinggi',
             'tanggal_pengumuman' => 'required|date',
-            'is_active' => 'boolean'
+            // 'is_active' => 'boolean'
         ]);
 
         $pengumuman->update($request->all());

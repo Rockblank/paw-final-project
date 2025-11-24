@@ -83,7 +83,7 @@
         <!-- Baris 1 -->
         <div class="cards-row">
             <!-- punya kelompok 1 -->
-            <div class="card" onclick="window.location.href='warga/tambah'">
+            <div class="card" onclick="window.location.href='warga'">
                 <h3>Pendataan Warga</h3>
                 <p>Kelola data kependudukan warga RT dengan sistem yang terorganisir dan mudah diakses.</p>
             </div>

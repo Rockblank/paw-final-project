@@ -28,6 +28,7 @@ Route::get('/surat/pengajuan', [SuratController::class, 'create'])->name('surat.
 Route::post('/surat/pengajuan', [SuratController::class, 'store'])->name('surat.store');
 
 Route::get('/warga/tambah', [DataController::class, 'createWarga']);
+Route::get('/warga', [DataController::class, 'indexWarga']); 
 Route::post('/warga', [DataController::class, 'storeWarga']);
 
 Route::get('/iuran/tambah', [IuranController::class, 'createIuran']);

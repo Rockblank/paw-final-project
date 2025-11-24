@@ -6,11 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    public function up(): void
     {
         Schema::create('aduans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('warga_id')->constrained('wargas')->onDelete('cascade');
+            $table->string('warga_nik', 16);
             $table->string('judul');
             $table->text('isi_aduan');
             $table->enum('kategori', ['infrastruktur', 'keamanan', 'kebersihan', 'lainnya']);
@@ -20,7 +20,7 @@ return new class extends Migration
         });
     }
 
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('aduans');
     }

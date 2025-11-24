@@ -10,7 +10,7 @@ class Aduan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'warga_id',
+        'warga_nik',  // PENTING: Ganti dari warga_id ke warga_nik
         'judul',
         'isi_aduan',
         'kategori',
@@ -21,6 +21,6 @@ class Aduan extends Model
     // Relasi ke Warga
     public function warga()
     {
-        return $this->belongsTo(Warga::class);
+        return $this->belongsTo(Warga::class, 'warga_nik', 'NIK');
     }
 }

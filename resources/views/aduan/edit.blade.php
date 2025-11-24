@@ -17,7 +17,7 @@
     <table class="info-table">
         <tr>
             <th>👤 Nama Warga:</th>
-            <td><strong style="font-size: 16px;">{{ $aduan->warga->nama }}</strong></td>
+            <td><strong>{{ $aduan->warga->Nama }}</strong></td>
         </tr>
         <tr>
             <th>📌 Judul:</th>
@@ -40,11 +40,11 @@
 
 <div class="card">
     <h3 style="color: #0A7968; margin-bottom: 25px; font-size: 22px; font-weight: 700;">💬 Form Tanggapan</h3>
-    
+
     <form action="{{ route('aduan.update', $aduan) }}" method="POST">
         @csrf
         @method('PUT')
-        
+
         <div class="form-group">
             <label for="status">Status Aduan <span style="color: #dc3545;">*</span></label>
             <select name="status" id="status" class="form-control" required>

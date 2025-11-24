@@ -12,7 +12,7 @@
         <strong>⚠️ Terdapat kesalahan:</strong>
         <ul style="margin: 10px 0 0 20px;">
             @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
+            <li>{{ $error }}</li>
             @endforeach
         </ul>
     </div>
@@ -20,15 +20,15 @@
 
     <form action="{{ route('aduan.store') }}" method="POST">
         @csrf
-        
+
         <div class="form-group">
-            <label for="warga_id">Nama Lengkap sesuai Pendataan Warga <span style="color: #dc3545;">*</span></label>
-            <select name="warga_id" id="warga_id" class="form-control" required style="cursor: pointer;">
+            <label for="warga_nik">Nama Lengkap sesuai Pendataan Warga <span style="color: #dc3545;">*</span></label>
+            <select name="warga_nik" id="warga_nik" class="form-control" required style="cursor: pointer;">
                 <option value="">-- Pilih Nama Warga --</option>
                 @foreach($wargas as $warga)
-                    <option value="{{ $warga->id }}" {{ old('warga_id') == $warga->id ? 'selected' : '' }}>
-                        {{ $warga->nama }} ({{ $warga->nik }})
-                    </option>
+                <option value="{{ $warga->NIK }}" {{ old('warga_nik') == $warga->NIK ? 'selected' : '' }}>
+                    {{ $warga->Nama }} (NIK: {{ $warga->NIK }})
+                </option>
                 @endforeach
             </select>
             <small style="color: #5ba6a0; font-size: 12px; display: block; margin-top: 8px;">Pilih nama sesuai dengan data yang terdaftar</small>
@@ -36,15 +36,14 @@
 
         <div class="form-group">
             <label for="judul">Judul Aduan <span style="color: #dc3545;">*</span></label>
-            <input 
-                type="text" 
-                name="judul" 
-                id="judul" 
-                class="form-control" 
-                placeholder="Contoh: Jalan Rusak di RT 02" 
-                required 
-                value="{{ old('judul') }}"
-            >
+            <input
+                type="text"
+                name="judul"
+                id="judul"
+                class="form-control"
+                placeholder="Contoh: Jalan Rusak di RT 02"
+                required
+                value="{{ old('judul') }}">
         </div>
 
         <div class="form-group">
@@ -60,14 +59,13 @@
 
         <div class="form-group">
             <label for="isi_aduan">Isi Aduan <span style="color: #dc3545;">*</span></label>
-            <textarea 
-                name="isi_aduan" 
-                id="isi_aduan" 
-                class="form-control" 
-                rows="6" 
-                placeholder="Jelaskan detail aduan Anda dengan lengkap..." 
-                required
-            >{{ old('isi_aduan') }}</textarea>
+            <textarea
+                name="isi_aduan"
+                id="isi_aduan"
+                class="form-control"
+                rows="6"
+                placeholder="Jelaskan detail aduan Anda dengan lengkap..."
+                required>{{ old('isi_aduan') }}</textarea>
             <small style="color: #5ba6a0; font-size: 12px; display: block; margin-top: 8px;">Berikan penjelasan yang jelas agar kami dapat menindaklanjuti dengan baik</small>
         </div>
 

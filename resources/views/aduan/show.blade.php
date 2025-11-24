@@ -17,11 +17,10 @@
         <table class="info-table">
             <tr>
                 <th>👤 Nama Warga:</th>
-                <td><strong style="font-size: 16px;">{{ $aduan->warga->nama }}</strong></td>
-            </tr>
-            <tr>
+                <td><strong>{{ $aduan->warga->Nama }}</strong></td>
+
                 <th>🆔 NIK:</th>
-                <td>{{ $aduan->warga->nik }}</td>
+                <td>{{ $aduan->warga->NIK }}</td>
             </tr>
             <tr>
                 <th>📌 Judul Aduan:</th>
@@ -39,11 +38,11 @@
                 <th>📊 Status:</th>
                 <td>
                     @if($aduan->status == 'pending')
-                        <span class="badge badge-pending" style="font-size: 13px; padding: 8px 16px;">⏳ Pending</span>
+                    <span class="badge badge-pending" style="font-size: 13px; padding: 8px 16px;">⏳ Pending</span>
                     @elseif($aduan->status == 'diproses')
-                        <span class="badge badge-diproses" style="font-size: 13px; padding: 8px 16px;">🔄 Diproses</span>
+                    <span class="badge badge-diproses" style="font-size: 13px; padding: 8px 16px;">🔄 Diproses</span>
                     @else
-                        <span class="badge badge-selesai" style="font-size: 13px; padding: 8px 16px;">✅ Selesai</span>
+                    <span class="badge badge-selesai" style="font-size: 13px; padding: 8px 16px;">✅ Selesai</span>
                     @endif
                 </td>
             </tr>
@@ -83,7 +82,7 @@
     <div class="action-buttons" style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #f0f0f0;">
         <a href="{{ route('aduan.edit', $aduan) }}" class="btn btn-primary">✏️ Berikan Tanggapan</a>
         <a href="{{ route('aduan.index') }}" class="btn btn-secondary" style="margin-left: 0;">← Kembali</a>
-        
+
         <form action="{{ route('aduan.destroy', $aduan) }}" method="POST" style="display: inline;" onsubmit="return confirm('⚠️ Yakin ingin menghapus aduan ini? Data tidak dapat dikembalikan!')">
             @csrf
             @method('DELETE')

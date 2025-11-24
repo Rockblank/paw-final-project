@@ -15,18 +15,33 @@ class AduanController extends Controller
         return view('aduan.index', compact('aduans'));
     }
 
-    // Form tambah aduan
     public function create()
     {
-        $wargas = Warga::all();
+        $wargas = Warga::orderBy('Nama', 'asc')->get();
+
+        // Cek jika tidak ada data warga
+        if ($wargas->isEmpty()) {
+            return redirect()->route('aduan.index')
+                ->with('error', 'Belum ada data warga. Silakan tambahkan data warga terlebih dahulu.');
+        }
+
         return view('aduan.create', compact('wargas'));
     }
 
-    // Simpan aduan baru
+    // Form tambah aduan
+    // public function create()
+    // {
+    //     $wargas = Warga::all();
+    //     return view('aduan.create', compact('wargas'));
+    // }
+
+
+
+    // Method store - untuk menyimpan data
     public function store(Request $request)
     {
         $request->validate([
-            'warga_id' => 'required|exists:wargas,id',
+            'warga_nik' => 'required|exists:warga,NIK',
             'judul' => 'required|string|max:255',
             'isi_aduan' => 'required|string',
             'kategori' => 'required|in:infrastruktur,keamanan,kebersihan,lainnya'
@@ -37,6 +52,23 @@ class AduanController extends Controller
         return redirect()->route('aduan.index')
             ->with('success', 'Aduan berhasil dibuat!');
     }
+
+
+    // Simpan aduan baru
+    // public function store(Request $request)
+    // {
+    //     $request->validate([
+    //         'warga_id' => 'required|exists:wargas,id',
+    //         'judul' => 'required|string|max:255',
+    //         'isi_aduan' => 'required|string',
+    //         'kategori' => 'required|in:infrastruktur,keamanan,kebersihan,lainnya'
+    //     ]);
+
+    //     Aduan::create($request->all());
+
+    //     return redirect()->route('aduan.index')
+    //         ->with('success', 'Aduan berhasil dibuat!');
+    // }
 
     // Detail aduan
     public function show(Aduan $aduan)

@@ -35,7 +35,7 @@
                 @forelse($aduans as $aduan)
                 <tr>
                     <td><strong>{{ $loop->iteration }}</strong></td>
-                    <td>{{ $aduan->warga->nama }}</td>
+                    <td>{{ $aduan->warga?->Nama ?? 'Data warga tidak ditemukan' }}</td>
                     <td>{{ $aduan->judul }}</td>
                     <td>{{ ucfirst($aduan->kategori) }}</td>
                     <td>

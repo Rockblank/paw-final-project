@@ -3,8 +3,8 @@
 @section('title', 'Buat Aduan Baru')
 
 @section('content')
-<h1 class="page-title">Persuratan RT PEMWEB D</h1>
-<p class="page-subtitle">Formulir Pengajuan Aduan</p>
+<h1 class="page-title">Aduan RT PEMWEB D</h1>
+<p class="page-subtitle">Kelola dan Pantau Aduan dari Warga</p>
 
 <div class="card">
     @if($errors->any())

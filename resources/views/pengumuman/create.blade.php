@@ -3,7 +3,7 @@
 @section('title', 'Buat Pengumuman')
 
 @section('content')
-<h1 class="page-title">Persuratan RT PEMWEB D</h1>
+<h1 class="page-title">Pengumuman RT PEMWEB D</h1>
 <p class="page-subtitle">Formulir Pembuatan Pengumuman</p>
 
 <div class="card">

@@ -3,27 +3,23 @@
 @section('title', 'Data Warga RT')
 
 @section('content')
-    <!-- Judul Halaman -->
     <div style="text-align: center; margin-bottom: 40px;">
         <h1 class="page-title">Data Warga RT</h1>
         <p class="page-subtitle">Daftar Warga RT</p>
     </div>
 
-    <!-- Tombol Tambah Warga (Pocisi Kanan) -->
     <div style="display: flex; justify-content: flex-end; margin-bottom: 15px;">
         <a href="/warga/tambah" class="btn btn-primary">
             + Tambah Warga
         </a>
     </div>
 
-    <!-- Alert Sukses (Jika ada data baru disimpan) -->
     @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
     @endif
 
-    <!-- Tabel Data Warga -->
     <div class="table-container">
         <table>
             <thead>

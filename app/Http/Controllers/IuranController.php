@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Iuran;
+use App\Http\Controllers\DataController;
 use App\Models\Warga;
+use App\Models\Iuran;
 
 class IuranController extends Controller
 {
-    //
     // --- Iuran Warga ---
-
-    public function createIuran()
+        public function createIuran()
     {
         // Ambil daftar NIK dan Nama warga untuk di-dropdown (select option)
         $wargaList = Warga::pluck('Nama', 'NIK');

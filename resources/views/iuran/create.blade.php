@@ -193,7 +193,8 @@
             <p>Kelola dan Pantau Iuran Warga</p>
         </div>
 
-        <div class="form-card">
+    <form method="POST" action="/iuran" enctype="multipart/form-data">
+        @csrf
 
             @if (session('success'))
                 <div class="alert alert-success">

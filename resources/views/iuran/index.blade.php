@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Iuran Warga</title>
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts (Poppins) agar mirip desain modern di gambar -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            /* Mengambil warna hijau teal dari gambar referensi */
-            --primary-color: #0d7a5e; /* Warna Hijau Judul/Tombol */
+            --primary-color: #0d7a5e;
             --primary-hover: #0a5f49;
-            --bg-color: #fdfdfd; /* Background putih bersih */
+            --bg-color: #fdfdfd;
         }
 
         body {
@@ -23,7 +20,6 @@
             color: #333;
         }
 
-        /* Styling Judul agar mirip gambar (Tengah, Hijau, Bold) */
         .page-title {
             color: var(--primary-color);
             font-weight: 700;
@@ -36,7 +32,6 @@
             margin-bottom: 2rem;
         }
 
-        /* Styling Tombol 'Tambah' agar mirip tombol 'Simpan' di gambar */
         .btn-custom {
             background-color: var(--primary-color);
             color: white;
@@ -50,7 +45,6 @@
             color: white;
         }
 
-        /* Styling Tabel Header agar senada */
         .table-custom thead {
             background-color: var(--primary-color);
             color: white;
@@ -60,14 +54,12 @@
             border-bottom: none;
         }
 
-        /* Card container yang bersih */
         .card-custom {
             border: none;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-radius: 10px;
         }
 
-        /* Warna teks hijau untuk highlight tertentu (misal Nama Warga) */
         .text-primary-custom {
             color: var(--primary-color);
             font-weight: 600;
@@ -76,22 +68,18 @@
 </head>
 <body>
 
-<!-- Navbar Sederhana (Opsional, agar ada tulisan HOME di kiri atas seperti gambar) -->
 <nav class="navbar navbar-light bg-white px-4 py-3 mb-4 border-bottom">
     <a class="navbar-brand fw-bold text-success" href="{{ url('/') }}" style="color: var(--primary-color) !important;">HOME</a>
 </nav>
 
 <div class="container">
 
-    <!-- Header Section (Center Aligned seperti gambar) -->
     <div class="text-center">
         <h2 class="page-title">Data Iuran Warga RT</h2>
         <p class="page-subtitle">Pantau pembayaran dan riwayat iuran warga</p>
     </div>
 
-    <!-- Tombol Action & Alert -->
     <div class="d-flex justify-content-between align-items-center mb-4 px-2">
-        <!-- Tombol Tambah dengan gaya hijau -->
         <a href="{{ route('iuran.create') }}" class="btn btn-custom">
             + Tambah Pembayaran Iuran
         </a>
@@ -104,7 +92,6 @@
         </div>
     @endif
 
-    <!-- Tabel Data -->
     <div class="card card-custom">
         <div class="card-body p-0">
             <div class="table-responsive">
@@ -126,7 +113,6 @@
                         <tr>
                             <td class="ps-4">{{ $key + 1 }}</td>
                             <td>
-                                <!-- Nama warga dikasih warna hijau biar senada -->
                                 <div class="text-primary-custom">{{ $iuran->warga->Nama ?? 'Data Warga Terhapus' }}</div>
                                 <small class="text-muted">{{ $iuran->NIK }}</small>
                             </td>
@@ -134,13 +120,12 @@
                             <td class="fw-bold">Rp {{ number_format($iuran->Nominal, 0, ',', '.') }}</td>
                             <td>{{ \Carbon\Carbon::parse($iuran->Tanggal_Bayar)->format('d/m/Y') }}</td>
                             <td>
-                                <!-- Badge status dengan warna hijau senada -->
+
                                 <span class="badge" style="background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc;">
                                     {{ $iuran->Status_Bayar }}
                                 </span>
                             </td>
                             <td>
-                                <!-- Gambar thumbnail dengan border radius halus -->
                                 <a href="{{ asset('storage/' . $iuran->Bukti_Iuran) }}" target="_blank">
                                     <img src="{{ asset('storage/' . $iuran->Bukti_Iuran) }}" alt="Bukti" width="45" height="45" class="rounded-3 object-fit-cover border">
                                 </a>
@@ -163,7 +148,6 @@
     </div>
 </div>
 
-<!-- Script Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

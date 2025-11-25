@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
-    // --- Pendataan Warga ---
+    // Pendataan Warga 
      public function indexWarga()
     {
         $warga = Warga::all();

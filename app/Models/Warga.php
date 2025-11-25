@@ -18,8 +18,6 @@ class Warga extends Model
         'Tanggal_Lahir',
         'Alamat',
         'RT',
-        'Status_Tinggal',
-        'Nomor_HP',
     ];
 
     /**

@@ -33,19 +33,16 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- Cek apakah ada data warga --}}
                 @forelse ($warga as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $item->NIK }}</td>
                         <td>{{ $item->Nama }}</td>
-                        {{-- Format tanggal agar lebih rapi --}}
                         <td>{{ \Carbon\Carbon::parse($item->Tanggal_Lahir)->format('d-m-Y') }}</td>
                         <td>{{ $item->Alamat }}</td>
                         <td>{{ $item->RT }}</td>
                     </tr>
                 @empty
-                    {{-- Tampilan jika data kosong (sesuai gambar) --}}
                     <tr>
                         <td colspan="6" style="text-align: center; padding: 50px; color: #888;">
                             Belum ada warga

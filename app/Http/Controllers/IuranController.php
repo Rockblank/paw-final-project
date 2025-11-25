@@ -9,8 +9,18 @@ use App\Models\Iuran;
 
 class IuranController extends Controller
 {
-    // --- Iuran Warga ---
-        public function createIuran()
+    // --- TAMBAHAN BARU: Menampilkan Daftar Iuran ---
+    public function indexIuran()
+    {
+        // Ambil data iuran, urutkan dari yang terbaru
+        // 'with('warga')' digunakan karena kita butuh menampilkan Nama Warga (bukan cuma NIK)
+        $iuranList = Iuran::with('warga')->orderBy('created_at', 'desc')->get();
+
+        return view('iuran.index', compact('iuranList'));
+    }
+
+    // --- Iuran Warga (Kode Lama Kamu) ---
+    public function createIuran()
     {
         // Ambil daftar NIK dan Nama warga untuk di-dropdown (select option)
         $wargaList = Warga::pluck('Nama', 'NIK');
@@ -19,6 +29,7 @@ class IuranController extends Controller
 
     public function storeIuran(Request $request)
     {
+        // ... (Biarkan kode storeIuran kamu yang lama tetap di sini, tidak ada perubahan) ...
         // Validasi data input
         $request->validate([
             'NIK' => 'required|string|size:16|exists:warga,NIK',
@@ -29,12 +40,8 @@ class IuranController extends Controller
 
         // 2. Upload File
         if ($request->hasFile('Bukti_Iuran')) {
-        // Simpan file di folder storage/app/public/bukti_iuran
-        // dan mendapatkan path file (nama unik file)
-        $filePath = $request->file('Bukti_Iuran')->store('public/bukti_iuran');
-
-        // Bersihkan string 'public/' agar yang tersimpan di DB hanya path dari 'bukti_iuran/...'
-        $filePath = str_replace('public/', '', $filePath);
+            $filePath = $request->file('Bukti_Iuran')->store('public/bukti_iuran');
+            $filePath = str_replace('public/', '', $filePath);
         }
 
         // Atur Status dan Tanggal Bayar otomatis
@@ -43,9 +50,9 @@ class IuranController extends Controller
         $data['Status_Bayar'] = 'Lunas';
         $data['Tanggal_Bayar'] = now();
 
-        // Menyimpan data iuran
         Iuran::create($data);
 
-        return redirect('/iuran/tambah')->with('success', 'Data Iuran dan Bukti Foto berhasil ditambahkan!');
+        // Ubah redirectnya ke index (daftar) saja biar langsung lihat hasilnya di tabel
+        return redirect('/iuran')->with('success', 'Data Iuran berhasil ditambahkan!');
     }
 }

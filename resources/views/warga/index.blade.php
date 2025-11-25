@@ -33,7 +33,6 @@
                 </tr>
             </thead>
             <tbody>
-                {{-- Cek apakah ada data warga --}}
                 @forelse ($warga as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
@@ -45,7 +44,6 @@
                         <td>{{ $item->RT }}</td>
                     </tr>
                 @empty
-                    {{-- Tampilan jika data kosong (sesuai gambar) --}}
                     <tr>
                         <td colspan="6" style="text-align: center; padding: 50px; color: #888;">
                             Belum ada warga
